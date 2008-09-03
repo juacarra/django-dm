@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Wed Sep  3 18:21:26 2008 -->
+<glade-interface>
+  <widget class="GtkWindow" id="wnSettings">
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">Settings</property>
+    <child>
+      <placeholder/>
+    </child>
+  </widget>
+</glade-interface>
