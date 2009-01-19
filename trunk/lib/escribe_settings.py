@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# escribe_settings -- Permite escribir el archivo settings.py utilizado por Django.
+
+# escribe_settings.py -- Permite escribir el archivo settings.py utilizado 
+#                        por Django.
+
 # (c) Juan Carrasco 2008
 # juacarrag@gmail.com
 
@@ -39,12 +42,12 @@ MEDIA_ROOT
 ) = range(0,12)
 
 
-def escribe(path, diccionario):
+def escribe(path, diccionario, apps=None):
     archivo = open(path + "/settings.py", 'w')
     
     archivo.write("# Django settings for %s project.\n\n" % diccionario[NAME])
     
-    archivo.write("DEBUG = True\n\n")
+    archivo.write("DEBUG = %s\n\n" % diccionario[DEBUG])
     
     archivo.write("TEMPLATE_DEBUG = DEBUG\n\n")
     
@@ -96,13 +99,19 @@ def escribe(path, diccionario):
     
     archivo.write("TEMPLATE_DIRS = (\n")
     archivo.write(")\n\n")
-
+    
+    
     archivo.write("INSTALLED_APPS = (\n")
     archivo.write(    "'django.contrib.auth',\n")
     archivo.write(    "'django.contrib.contenttypes',\n")
     archivo.write(    "'django.contrib.sessions',\n")
     archivo.write(    "'django.contrib.sites',\n")
     archivo.write(    "'django.contrib.admin',\n")
+       
+    if apps <> None:
+        for app in apps:
+            archivo.write(    "'%s',\n" % app)
+        
     archivo.write(")\n\n")
     
 if __name__ == "__main__":
